@@ -41,12 +41,12 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-blue-700 px-4 pb-4 space-y-3 text-lg">
+        <div className="md:hidden bg-blue-700 h-screen items-center px-4 pb-4 space-y-3 text-lg">
           <Link to="/" onClick={() => setOpen(false)} className="block">
             Home
           </Link>
-          <Link to="/forecast" onClick={() => setOpen(false)} className="block">
-            Forecast
+          <Link to="/historical" onClick={() => setOpen(false)} className="block">
+            Historical
           </Link>
         </div>
       )}

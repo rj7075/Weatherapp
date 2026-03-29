@@ -1,10 +1,9 @@
-    // hooks/useWeather.js
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const useLocation = () => {
   const [coords, setCoords] = useState(null);
 
-  useEffect(() => {
+  const getLocation = () => {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         setCoords({
@@ -13,10 +12,11 @@ export const useLocation = () => {
         });
       },
       (err) => {
-        console.error(err);
+        console.log(err);
+        alert("Location access denied");
       }
     );
-  }, []);
+  };
 
-  return coords;
+  return { coords, getLocation };
 };

@@ -21,15 +21,41 @@ const CurrentWeather = () => {
   const [unit, setUnit] = useState("C");
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const coords = useLocation();
+  const { coords, getLocation } = useLocation();
   const data = useWeather(coords);
 
-  if (!data)
-    return (
-      <div className="flex justify-center items-center h-screen text-xl font-semibold">
-        🌤 Loading weather data...
-      </div>
-    );
+  if (!coords) {
+  return (
+    <div className="flex flex-col items-center justify-center h-screen gap-4">
+      <p className="text-gray-600 text-lg text-center">
+        📍 Please allow location to view weather data
+      </p>
+
+      <button
+        onClick={getLocation}
+        className="bg-blue-600 text-white px-6 py-2 rounded-xl shadow hover:bg-blue-700 transition"
+      >
+        Use My Location
+      </button>
+    </div>
+  );
+}
+
+if (!data) {
+  return (
+    <div className="flex justify-center items-center h-screen text-xl font-semibold">
+      🌤 Loading weather data...
+    </div>
+  );
+}
+
+if (!data) {
+  return (
+    <div className="flex justify-center items-center h-screen text-xl font-semibold">
+      🌤 Loading weather data...
+    </div>
+  );
+}
 
   const { weather, air } = data;
 
@@ -57,6 +83,14 @@ const CurrentWeather = () => {
 
       {/* 🔗 Navigation */}
       <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+        <div className="flex justify-center md:justify-end">
+        <button
+          onClick={getLocation}
+          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700 transition"
+        >
+          📍 Use My Location
+        </button>
+      </div>
         <Link
           to="/"
           className="px-4 py-2 rounded-full bg-blue-600 text-white shadow hover:bg-blue-700 transition"
