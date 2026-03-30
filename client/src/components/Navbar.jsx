@@ -41,15 +41,24 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-blue-700 h-screen items-center px-4 pb-4 space-y-3 text-lg">
-          <Link to="/" onClick={() => setOpen(false)} className="block">
-            Home
-          </Link>
-          <Link to="/historical" onClick={() => setOpen(false)} className="block">
-            Historical
-          </Link>
-        </div>
-      )}
+  <div className="md:hidden bg-blue-700 h-screen flex flex-col justify-center items-center space-y-6 text-lg">
+    <Link
+      to="/"
+      onClick={() => setOpen(false)}
+      className="block text-center"
+    >
+      Home
+    </Link>
+
+    <Link
+      to="/historical"
+      onClick={() => setOpen(false)}
+      className="block text-center"
+    >
+      Historical
+    </Link>
+  </div>
+)}
     </nav>
   );
 };

@@ -1,13 +1,77 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Basic -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>client</title>
+    <meta name="theme-color" content="#0ea5e9" />
+
+    <!-- Title -->
+    <title>Live Weather App | Real-Time Weather Forecast & Location-Based Updates</title>
+
+    <!-- SEO Description -->
+    <meta 
+      name="description" 
+      content="Get real-time weather updates, temperature, humidity, and forecasts based on your current location. Fast, accurate, and responsive weather app." 
+    />
+
+    <!-- Keywords -->
+    <meta 
+      name="keywords" 
+      content="weather app, live weather, weather forecast, current weather, temperature today, weather by location, react weather app" 
+    />
+
+    <!-- Author -->
+    <meta name="author" content="Ranjeet Yadav" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/weather.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourweatherapp.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Live Weather App 🌦️ | Real-Time Forecast" />
+    <meta property="og:description" content="Check live weather conditions, forecasts, and location-based updates instantly." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourweatherapp.com/" />
+    <meta property="og:image" content="https://yourweatherapp.com/weather-preview.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Live Weather App 🌦️" />
+    <meta name="twitter:description" content="Real-time weather updates and forecasts at your fingertips." />
+    <meta name="twitter:image" content="https://yourweatherapp.com/weather-preview.png" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://api.openweathermap.org" />
+
+    <!-- Schema Markup (VERY IMPORTANT) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Live Weather App",
+        "url": "https://yourweatherapp.com/",
+        "applicationCategory": "WeatherApplication",
+        "operatingSystem": "All",
+        "description": "Real-time weather forecast app providing accurate temperature, humidity, and location-based weather updates.",
+        "author": {
+          "@type": "Person",
+          "name": "Ranjeet Yadav"
+        }
+      }
+    </script>
   </head>
+
   <body>
+    <noscript>Please enable JavaScript to use the weather app.</noscript>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
