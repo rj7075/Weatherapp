@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { CalendarDays, BarChart3 } from "lucide-react";
 
 const Historical = () => {
-  const coords = useLocation();
+  const { coords, getLocation } = useLocation();
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -46,6 +46,8 @@ const Historical = () => {
         endDate.toISOString().split("T")[0]
       );
 
+      console.log("Historical data res",res);
+
       if (!res || !res.daily) {
         alert("No data returned. Try older dates.");
         return;
@@ -59,10 +61,15 @@ const Historical = () => {
 
   if (!coords)
     return (
-      <div className="flex justify-center items-center h-screen text-lg">
-        📍 Fetching your location...
-      </div>
-    );
+  <div className="flex items-center justify-center min-h-screen">
+    <button
+      onClick={getLocation}
+      className="bg-blue-600 text-white cursor-pointer px-6 py-3 rounded-xl shadow hover:bg-blue-700 transition"
+    >
+      📍 Use My Location
+    </button>
+  </div>
+);
 
   const daily = data?.daily;
 

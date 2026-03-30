@@ -33,7 +33,7 @@ const CurrentWeather = () => {
 
       <button
         onClick={getLocation}
-        className="bg-blue-600 text-white px-6 py-2 rounded-xl shadow hover:bg-blue-700 transition"
+        className="bg-blue-600 text-white px-6 py-2 cursor-pointer rounded-xl shadow hover:bg-blue-700 transition"
       >
         Use My Location
       </button>

@@ -106,6 +106,10 @@ export const getAirQuality = async (lat, lon) => {
    📈 HISTORICAL DATA (Page 2)
 ========================= */
 export const getHistoricalData = async (lat, lon, startDate, endDate) => {
+  console.log("LAT:", lat);
+console.log("LON:", lon);
+console.log("START:", startDate);
+console.log("END:", endDate);
   try {
     const key = `history-${lat}-${lon}-${startDate}-${endDate}`;
 
