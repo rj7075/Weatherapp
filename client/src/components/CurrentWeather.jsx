@@ -152,9 +152,13 @@ if (!data) {
 
           <WeatherCard title="Wind Speed" value={daily.windspeed_10m_max[0]} icon={<Wind />} />
           <WeatherCard title="Rain Probability" value={daily.precipitation_probability_max[0]} icon={<CloudRain />} />
-
+       
           <WeatherCard title="PM10" value={hourlyAir.pm10[0]} icon={<Activity />} />
           <WeatherCard title="PM2.5" value={hourlyAir.pm2_5[0]} icon={<Activity />} />
+          <WeatherCard title="CO" value={hourlyAir.carbon_monoxide[0]} icon={<Wind />} />
+          <WeatherCard title="NO2" value={hourlyAir.nitrogen_dioxide[0]} icon={<Activity />} />
+          <WeatherCard title="SO2" value={hourlyAir.sulphur_dioxide[0]} icon={<CloudRain />} />
+          <WeatherCard title="O3" value={hourlyAir.ozone[0]} icon={<Sun />} />
         </div>
       </div>
 

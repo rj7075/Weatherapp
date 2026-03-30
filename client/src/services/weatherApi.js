@@ -56,7 +56,7 @@ export const getWeatherData = async (lat, lon) => {
 
     // ✅ Save in cache
     cache[key] = res.data;
-
+ console.log("weather data",res.data);
     return res.data;
   } catch (error) {
     console.error("❌ Weather API Error:", error);
@@ -92,7 +92,7 @@ export const getAirQuality = async (lat, lon) => {
         timezone: "auto",
       },
     });
-
+  console.log("air quality",res.data);
     cache[key] = res.data;
 
     return res.data;
