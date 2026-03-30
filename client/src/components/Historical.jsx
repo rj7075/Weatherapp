@@ -5,11 +5,18 @@ import { useLocation } from "../hooks/userLocation";
 import { getHistoricalData } from "../services/weatherApi";
 import Chart from "../components/Chart";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import { CalendarDays, BarChart3 } from "lucide-react";
 
 const Historical = () => {
   const { coords, getLocation } = useLocation();
+
+  useEffect(() => {
+  if (coords) {
+    toast.success("📍 Location access granted successfully!");
+  }
+}, [coords]);
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -46,7 +53,7 @@ const Historical = () => {
         endDate.toISOString().split("T")[0]
       );
 
-      console.log("Historical data res",res);
+      
 
       if (!res || !res.daily) {
         alert("No data returned. Try older dates.");
@@ -59,15 +66,21 @@ const Historical = () => {
     fetchData();
   }, [coords, startDate, endDate]);
 
+  const handleLocation = () => {
+ 
+  getLocation();
+};
+
+
   if (!coords)
     return (
   <div className="flex items-center justify-center min-h-screen">
     <button
-      onClick={getLocation}
-      className="bg-blue-600 text-white cursor-pointer px-6 py-3 rounded-xl shadow hover:bg-blue-700 transition"
-    >
-      📍 Use My Location
-    </button>
+  onClick={handleLocation}
+  className="bg-blue-600 text-white cursor-pointer px-6 py-3 rounded-xl shadow hover:bg-blue-700 transition"
+>
+  📍 Use My Location
+</button>
   </div>
 );
 

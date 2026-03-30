@@ -6,6 +6,8 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 import {
   Thermometer,
@@ -24,6 +26,17 @@ const CurrentWeather = () => {
   const { coords, getLocation } = useLocation();
   const data = useWeather(coords);
 
+  useEffect(() => {
+  if (coords) {
+    toast.success("📍 Location access granted successfully!");
+  }
+}, [coords]);
+
+const handleLocation = () => {
+  
+  getLocation();
+};
+
   if (!coords) {
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-4">
@@ -32,7 +45,7 @@ const CurrentWeather = () => {
       </p>
 
       <button
-        onClick={getLocation}
+        onClick={handleLocation}
         className="bg-blue-600 text-white px-6 py-2 cursor-pointer rounded-xl shadow hover:bg-blue-700 transition"
       >
         Use My Location
@@ -83,14 +96,6 @@ if (!data) {
 
       {/* 🔗 Navigation */}
       <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-        <div className="flex justify-center md:justify-end">
-        <button
-          onClick={getLocation}
-          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700 transition"
-        >
-          📍 Use My Location
-        </button>
-      </div>
         <Link
           to="/"
           className="px-4 py-2 rounded-full bg-blue-600 text-white shadow hover:bg-blue-700 transition"
